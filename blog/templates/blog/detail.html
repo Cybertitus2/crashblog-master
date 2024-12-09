@@ -1,0 +1,67 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{ post.title }} | {% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-body">
+        <div class="container2">
+            <section class="section">
+                {% if post.image %}
+                    <figure class="image mb-6">
+                        <img width="320" height="140" src="{{ post.image.url }}">
+                    </figure>
+                {% endif %}
+
+                {% if post.video %}
+                  <video height="300" controls controlsList="nodownload">
+                    <source src="{{ post.video.url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                {% endif %}
+
+             
+                
+                <div class="columns1">
+                    <div class="column1 is-8 is-offset-2">
+                        <div class="content1 is-medium">
+                            
+                            <h2 class="subtitle is-4">{{ post.created_at|timesince }} ago</h2>
+                            <h1 class="title">{{ post.title }}</h1>
+                            <p><strong>{{ post.intro }}</strong></p>
+                            <p>{{ post.body }}</p>
+
+                            <p><small>Category: <a href="{% url 'category_detail' post.category.slug %}">{{ post.category }}</a></small></p>
+
+                            <hr>
+
+                            <h2 class="subtitle is-4">Comments</h2>
+
+                            <form method="post" class="mb-6">
+                                {% csrf_token %}
+
+                                {{ form.as_p }}
+
+                                <div class="field">
+                                    <div class="control">
+                                        <button class="button is-success">Submit comment</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            {% for comment in post.comments.all %}
+                                <article class="media box">
+                                    <div class="media-content5">
+                                        <strong>{{ comment.name }}</strong> <small>{{ comment.created_at|timesince }} ago</small><br>
+                                        {{ comment.body }}
+                                    </div>
+                                </article>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+{% endblock %}

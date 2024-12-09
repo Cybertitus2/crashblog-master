@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="{% static 'logo(2).png' %}" type="image/x-icon">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="{% static 'style.css' %}"> 
+  <title>{% block title %}{% endblock %}Celebrity Leaks</title>
+ 
+</head>
+
+<body>
+   <!-- loader  -->
+   <div id="preloader">
+    <div class="loader_bg">
+      <div class="loader"><img src="{% static 'loader.gif' %}" alt="#" /></div>
+      <img  class="loaderimg" src="{% static 'logo.png' %}" alt="">
+    </div>
+   </div>
+  <!-- end loader -->
+  <!-- Header -->
+  <section id="header">
+    <div class="header container1">
+      <div class="nav-bar">
+        <div class="brand">
+          <a href="#hero">
+            <img src="{% static 'logo.png' %}" alt="">
+          </a>
+        </div>
+        <div class="navbar-item">
+            <form method="get" action="{% url 'search' %}">
+                <div class="control has-icons-left">
+                    <input class="input is-rounded" name="query" type="text" placeholder="Search">
+                    <span class="icon is-left">
+                        <button type="submit" class="button is-rounded is-light">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        
+                    </span>
+                </div>
+            </form>
+        </div>
+        <div class="nav-list">
+          <div class="hamburger">
+            <div class="bar"></div>
+          </div>
+          <ul>
+            <li><a href="{% url 'frontpage' %}" data-after="Home">Home</a></li>
+            <li><a href="{% url 'about' %}" data-after="about">Contact</a></li>
+            <li><a href="{% url 'privacy' %}" data-after="privacy">privacy policy</a></li>
+            <li><a href="{% url 'leaks' %}" data-after="Contact">Leaks</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Header -->
+
+  <!-- Hero Section  -->
+
+            {% block content %}
+            {% endblock %}
+          
+        
+       
+
+  <!-- End Hero Section  -->      
+
+  <!-- Footer -->
+  <section id="footer">
+    <div class="footer container1">
+      <div class="brand">
+        <h1><img src="{% static 'logo(4).png' %}" alt=""></h1>
+      </div>
+      <div class="widget rounded">
+        <div class="widget-header text-center">
+            <h3 style="color: white; text-align: center;">Newsletter</h3>
+        </div>
+  
+        <div class="widget-content">
+          <form action="" method="post">
+            {% csrf_token %}
+            <input type="email"class="input is-rounded" placeholder="Email address...">
+            <button style="width: 100%; padding: 1rem; background-color: #222; margin-top: 5px;" class="button is-rounded is-light">Sign Up</button>
+          </form>
+        
+            <span style="color: white;">
+                By signing up, you agree to our <a href="{% url 'privacy'%}">Privacy policy</a>
+            </span>
+        </div>
+    </div>
+      <h2>Exposing the Elite.</h2>
+      <div class="copyright">
+              <ul class="social_icon text_align_center">
+                <li> <a href="Javascript:void(0)"><i class="fa-brands fa-whatsapp"></i></a></li>
+                <li> <a href="Javascript:void(0)"><i class="fa-brands fa-twitter"></i></a></li>
+                <li> <a href="Javascript:void(0)"><i class="fa-brands fa-tiktok"></i></a></li>
+                <li> <a href="Javascript:void(0)"><i class="fa-brands fa-instagram"></i></i></a></li>
+              </ul>
+      </div>
+      <h2><a href="{% url 'privacy'%}">Privacy Policy</a></h2>
+      <h2><a href="{% url 'terms'%}">Terms & conditions</a></h2>
+      <p class="Copyright">Copyright © 2024 Celebrity Leaks. All rights reserved</p>
+    </div>
+  </section>
+  <!-- End Footer -->
+  <script src="{% static 'scripts.js'%}"></script> 
+</body>
+
+</html>
