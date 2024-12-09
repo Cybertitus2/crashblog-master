@@ -1,0 +1,983 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap';
+* {
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+html {
+font-size: 10px;
+font-family: 'Montserrat', sans-serif;
+scroll-behavior: smooth;
+}
+body{
+background-color: #000100;
+}
+a {
+text-decoration: none;
+}
+.container1 {
+min-height: 100vh;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.brand img {
+width: 150px;
+height: 100px;
+}
+img {
+height: 100%;
+width: 100%;
+object-fit: cover;
+}
+p {
+color: whitesmoke;
+font-size: 1.4rem;
+margin-top: 5px;
+line-height: 2.5rem;
+font-weight: 300;
+letter-spacing: 0.05rem;
+}
+/* Header section */
+#header {
+position: fixed;
+z-index: 1000;
+left: 0;
+top: 0;
+width: 100vw;
+height: auto;
+}
+#header .header {
+min-height: 8vh;
+background-color: rgba(31, 30, 30, 0.24);
+transition: 0.3s ease background-color;
+}
+#header .nav-bar {
+display: flex;
+align-items: center;
+justify-content: space-between;
+width: 100%;
+height: 100%;
+max-width: 1300px;
+padding: 0 10px;
+}
+#header .nav-list ul {
+list-style: none;
+position: absolute;
+background: black;
+width: 100vw;
+height: 100vh;
+left: 100%;
+top: 0;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+z-index: 1;
+overflow-x: hidden;
+transition: 0.5s ease left;
+}
+#header .nav-list ul.active {
+left: 0%;
+}
+#header .nav-list ul a {
+font-size: 2.5rem;
+font-weight: 500;
+letter-spacing: 0.2rem;
+text-decoration: none;
+color: white;
+text-transform: uppercase;
+padding: 20px;
+display: block;
+}
+#header .nav-list ul a::after {
+content: attr(data-after);
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%) scale(0);
+color: rgba(240, 248, 255, 0.021);
+font-size: 13rem;
+letter-spacing: 50px;
+z-index: -1;
+transition: 0.3s ease letter-spacing;
+}
+#header .nav-list ul li:hover a::after {
+transform: translate(-50%, -50%) scale(1);
+letter-spacing: initial;
+}
+#header .nav-list ul li:hover a {
+color: black;
+}
+#header .hamburger {
+height: 60px;
+width: 60px;
+display: inline-block;
+border: 3px solid white;
+border-radius: 50%;
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 100;
+cursor: pointer;
+transform: scale(0.8);
+margin-right: 20px;
+}
+#header .hamburger:after {
+position: absolute;
+content: '';
+height: 100%;
+width: 100%;
+border-radius: 50%;
+border: 3px solid white;
+animation: hamburger_puls 1s ease infinite;
+}
+#header .hamburger .bar {
+height: 2px;
+width: 30px;
+position: relative;
+background-color: white;
+z-index: -1;
+}
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+content: '';
+position: absolute;
+height: 100%;
+width: 100%;
+left: 0;
+background-color: white;
+transition: 0.3s ease;
+transition-property: top, bottom;
+}
+#header .hamburger .bar::after {
+top: 8px;
+}
+#header .hamburger .bar::before {
+bottom: 8px;
+}
+#header .hamburger.active .bar::before {
+bottom: 0;
+}
+#header .hamburger.active .bar::after {
+top: 0;
+}
+/* End Header section */
+/* Footer */
+#footer {
+background: linear-gradient(to right,black,#FF6600);
+}
+#footer .footer {
+min-height: 200px;
+flex-direction: column;
+padding-top: 50px;
+padding-bottom: 10px;
+}
+#footer h2 {
+color: white;
+font-weight: 500;
+font-size: 1.8rem;
+letter-spacing: 0.1rem;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+#footer .social-icon {
+display: flex;
+margin-bottom: 30px;
+}
+#footer .social-item {
+height: 50px;
+width: 50px;
+margin: 0 5px;
+}
+#footer p {
+color: white;
+font-size: 1.3rem;
+}
+/* End Footer */
+/* Keyframes */
+@keyframes hamburger_puls {
+0% {
+    opacity: 1;
+    transform: scale(1);
+}
+100% {
+    opacity: 0;
+    transform: scale(1.4);
+}
+}
+/* Media Query For Tablet */
+@media only screen and (min-width: 768px) {
+h1.section-title {
+    font-size: 6rem;
+}
+
+/* Hero */
+#hero h1 {
+    font-size: 7rem;
+}
+/* End Hero */
+}
+/* End Media Query For Tablet */
+
+/* Media Query For Desktop */
+@media only screen and (min-width: 1200px) {
+/* header */
+#header .hamburger {
+    display: none;
+}
+#header .nav-list ul {
+    position: initial;
+    display: block;
+    height: auto;
+    width: fit-content;
+    background-color: transparent;
+}
+#header .nav-list ul li {
+    display: inline-block;
+}
+#header .nav-list ul li a {
+    font-size: 1.8rem;
+}
+#header .nav-list ul a:after {
+    display: none;
+}
+/* End header */
+
+
+
+}
+/* End  Media Query For Desktop */
+/* Hero Section */
+.hero {
+background-color: #111;
+padding: 4rem 0;
+}
+
+.hero-body {
+background-color: #111;
+margin-top: 80px;
+}
+
+/* Container for Posts */
+.container5 {
+max-width: 1200px;
+margin: 0 auto;
+}
+
+/* Post Columns */
+.columns5 {
+display: flex;
+flex-wrap: wrap; /* Allows wrapping of items on smaller screens */
+gap: 2rem; /* Adds spacing between columns */
+}
+
+/* Default - Three posts per row on Desktop */
+.column5 {
+flex: 3;
+min-width: 250px; /* Ensures a minimum width */
+max-width: 31.33%; /* Three posts per row (100% / 3 = 33.33%) */
+padding: 0;
+}
+
+.column5 a {
+display: block;
+text-decoration: none;
+color: inherit;
+border: 0.5px solid transparent; /* Optional: adds a border to posts */
+border-radius: 8px; /* Optional: rounded corners */
+overflow: hidden;
+transition: transform 0.3s ease;
+}
+
+.column5 a:hover {
+transform: scale(1.05); /* Optional: adds a hover effect */
+}
+
+/* Post Image Styling */
+.column5 .image {
+width: 100%;
+height: 200px;
+overflow: hidden;
+margin-bottom: 1rem;
+}
+
+.column5 .image img {
+width: 100%;
+height: 100%;
+object-fit: cover; /* Ensures images cover the entire space */
+transition: transform 0.3s ease;
+}
+
+/* Post Title and Intro Styling */
+.column5 h1 .title {
+font-size: 1.8rem;
+font-weight: 600;
+color: white;
+margin-bottom: 0.5rem;
+}
+
+.column5 .subtitle {
+font-size: 1.2rem;
+color: #bbb;
+margin-bottom: 1rem;
+}
+
+.column5 p {
+font-size: 1rem;
+color: #ddd;
+line-height: 1.6;
+margin-bottom: 10px;
+}
+
+/* Media Queries */
+
+/* Tablet View - Two posts per row */
+@media only screen and (max-width: 1024px) {
+.column5 {
+max-width: 48%; /* Two posts per row on tablet */
+margin-bottom: 10px; /* Adds spacing between posts in tablet view */
+}
+
+.column5 .image {
+height: 180px; /* Adjusts image height on tablet */
+}
+
+.column5 h1.title {
+font-size: 1.6rem;
+}
+
+.column5 h2.subtitle {
+font-size: 1rem;
+}
+
+.column5 p {
+font-size: 0.9rem;
+}
+}
+
+/* Mobile View - One post per row */
+@media only screen and (max-width: 768px) {
+.column5 {
+max-width: 100%; /* One post per row */
+margin-bottom: 10px;
+}
+
+.column5 .image {
+height: 160px; /* Adjusts image height on mobile */
+}
+
+.column5 h1.title {
+font-size: 1.5rem;
+}
+
+.column5 h2.subtitle {
+font-size: 1rem;
+}
+
+.column5 p {
+font-size: 0.9rem;
+}
+}
+
+/* Extra Mobile View (Very Small Screens) */
+@media only screen and (max-width: 480px) {
+.column5 {
+max-width: 100%;
+margin-bottom: 10px;
+}
+}
+
+/* Container for the navbar search form */
+.navbar-item {
+display: flex;
+align-items: center;  /* Aligns the search bar and icon vertically */
+justify-content: center;  /* Centers the search bar horizontally */
+padding-right: 20px; /* Adds space from the right side of the navbar */
+}
+
+/* Search form container */
+/* form {
+display: flex;
+align-items: center;
+justify-content: space-between;
+position: relative;
+width: 350px; 
+} */
+
+/* Input field styling */
+input.input {
+padding: 10px 12px;
+border-radius: 20px; /* Rounded corners for the input */
+border: 1px solid #ddd; /* Light border color */
+width: 100%; /* Takes up the full width of the form */
+background-color: #222; /* Dark background */
+color: white; /* Text color */
+font-size: 1rem; /* Font size */
+outline: none; /* Removes the default outline on focus */
+transition: all 0.3s ease-in-out; /* Smooth transition for input focus */
+}
+
+/* Input field focus state */
+input.input:focus {
+border-color: #FF6600; /* Changes border color on focus */
+background-color: #333; /* Darker background on focus */
+}
+
+/* Search icon container */
+.icon.is-left {
+position: absolute;
+right: 0px; /* Aligns the icon to the left of the input */
+top: 50%;
+transform: translateY(-50%); /* Vertically centers the icon */
+}
+
+/* Icon style */
+.icon.is-left i {
+color: #fff; /* White color for the icon */
+font-size: 1.2rem; /* Icon size */
+}
+
+/* Hover effect on the search icon */
+.icon.is-left i:hover {
+color: #FF6600; /* Changes the icon color on hover */
+}
+
+/* Mobile responsive styling for the input field */
+@media (max-width: 768px) {
+.navbar-item {
+    padding-right: 10px; /* Reduce right padding on smaller screens */
+}
+
+form {
+    width: 100%; /* Full width of the navbar for mobile */
+}
+
+input.input {
+    font-size: 0.9rem; /* Slightly smaller text on mobile */
+    padding: 8px 10px; /* Adjust padding for mobile */
+}
+}
+button[type="submit"] {
+background: transparent;
+border: none;
+padding: 0;
+cursor: pointer;
+}
+
+button[type="submit"] i {
+font-size: 1.5rem; /* You can adjust the icon size here */
+color: #333; /* You can change the color of the icon */
+}
+/* details css start */
+/* Global Styles */
+
+/* h1, h2, h3, h4, h5, h6 {
+    color: whitesmoke;
+font-weight: 600;
+} */
+
+a {
+text-decoration: none;
+color: inherit;
+}
+
+.container2 {
+width: 100%;
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 1rem;
+}
+
+/* Hero Section */
+.hero {
+background-color: black;
+padding: 4rem 0;
+}
+
+.hero-body {
+background-color: black;
+padding: 4rem 0;
+}
+
+/* Post Section */
+.section {
+padding: 2rem 0;
+}
+
+.content5 {
+margin-bottom: 3rem;
+}
+
+.content5 h1.title {
+color: #fff;
+font-size: 2.5rem;
+margin-bottom: 1rem;
+}
+
+.content5 h2.subtitle {
+color: orangered;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+}
+
+.content5 p {
+font-size: 1.1rem;
+line-height: 1.6;
+margin-bottom: 1.5rem;
+color: whitesmoke;
+}
+
+.content5 small {
+color: #aaa;
+}
+
+.content5 hr {
+border-top: 1px solid #444;
+margin: 2rem 0;
+}
+
+/* Media Elements (Images, Videos) */
+.image {
+width: 100%;
+margin-bottom: 2rem;
+}
+
+.image img {
+width: 100%;
+height: auto;
+object-fit: cover;
+border-radius: 8px;
+}
+
+video {
+max-width: 100%;
+height: auto;
+border-radius: 8px;
+}
+
+/* Comment Form */
+form {
+margin-top: 2rem;
+margin-bottom: 2rem;
+align-items: center;
+justify-content: space-between; 
+position: relative;
+}
+
+form .field {
+margin-bottom: 1.5rem;
+}
+
+form .label {
+color: #fff;
+font-size: 1.2rem;
+}
+
+form .control {
+width: 100%;
+}
+
+form textarea {
+width: 100%;
+height: 150px;
+padding: 1rem;
+background-color: #222;
+color: #ddd;
+border: 1px solid #444;
+border-radius: 8px;
+}
+
+form input[type="text"] {
+width: 100%;
+padding: 1rem;
+background-color: #222;
+color: #ddd;
+border: 1px solid #444;
+border-radius: 8px;
+}
+
+form .button {
+background-color: #FF6600;
+color: white;
+font-weight: 600;
+padding: 0.8rem 2rem;
+border-radius: 8px;
+transition: background-color 0.3s ease;
+}
+
+form .button:hover {
+background-color: #ff8500;
+}
+
+/* Comment Section */
+.media {
+display: flex;
+justify-content: flex-start;
+align-items: flex-start;
+margin-bottom: 1.5rem;
+}
+
+.media-content5 {
+padding: 1rem;
+background-color: #222;
+border-radius: 8px;
+width: 100%;
+margin-left: 1rem;
+color: whitesmoke;
+}
+
+.media-content5 strong {
+font-size: 1.1rem;
+color: #FF6600;
+}
+
+.media-content5 small {
+font-size: 0.9rem;
+color: whitesmoke;
+}
+
+.media-content5 p {
+font-size: 1rem;
+margin-top: 0.5rem;
+line-height: 1.4;
+}
+
+/* Responsive Design */
+@media only screen and (min-width: 500px) {
+.loaderimg{
+  display: none;
+}
+}
+@media only screen and (max-width: 1024px) {
+.container5 {
+    padding: 0 2rem;
+}
+
+.content5 h1.title {
+    font-size: 2rem;
+}
+
+.content5 h2.subtitle {
+    font-size: 1.1rem;
+}
+
+.content5 p {
+    font-size: 1rem;
+}
+
+.media-content5 {
+    width: 100%;
+}
+}
+
+@media only screen and (max-width: 768px) {
+.container5 {
+    padding: 0 1rem;
+}
+
+.content5 h1.title {
+    font-size: 1.8rem;
+}
+
+.content5 h2.subtitle {
+    font-size: 1rem;
+}
+
+.content5 p {
+    font-size: 0.9rem;
+}
+
+.media-content5 {
+    width: 100%;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+}
+}
+
+@media only screen and (max-width: 480px) {
+.content5 h1.title {
+    font-size: 1.6rem;
+}
+
+.content5 h2.subtitle {
+    font-size: 1rem;
+}
+
+.content5 p {
+    font-size: 0.9rem;
+}
+}
+/* Style for the category text block */
+p small {
+font-size: 1.2rem; /* Set a readable font size for the small text */
+color: #777; /* Light gray color for the small text */
+line-height: 1.6; /* Adjust line height for readability */
+}
+
+/* Style for the category link */
+p small a {
+font-weight: 500; /* Slightly bold the link */
+color: #FF6600; /* Orange color for the category link */
+text-decoration: none; /* Remove underline */
+transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Add hover effect for the category link */
+p small a:hover {
+color: #ff4500; /* Change color on hover */
+text-decoration: underline; /* Optional: Add underline on hover for emphasis */
+}
+
+/* Optional: If you want to add some space between text and link */
+p small {
+margin-top: 1rem; /* Adds some space above the category text */
+display: inline-block; /* Ensures the small text does not take full width */
+}
+
+/* Container for the content columns */
+.columns5 {
+display: flex;
+flex-direction: column;  /* Makes sure columns stack vertically */
+justify-content: center;
+align-items: center;
+width: 100%;
+padding: 20px;
+}
+
+/* Column containing content */
+.column5 {
+width: 100%;
+max-width: 700px;  /* You can adjust the max-width to suit your design */
+padding: 20px;
+margin: 10px 0;
+box-sizing: border-box;
+background-color: black;  /* Optional: Add a background color */
+border-radius: 8px; /* Optional: Add rounded corners */
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow */
+}
+
+/* Content inside each column */ 
+.content5 {
+padding: 20px;
+font-size: 1.2rem;
+line-height: 1.6;
+color: whitesmoke;  /* Dark text color for readability */
+}
+
+/* Adjusts the title and subtitle styling */
+.title {
+font-size: 2rem;
+font-weight: bold;
+margin-bottom: 10px;
+color: #ff4500;
+}
+
+.subtitle {
+font-size: 1.4rem;
+color: gray;
+}
+
+/* Image/Video section to align with columns */
+img, video {
+width: 100%;
+max-width: 800px;  /* Ensure the image and video are the same size as the column */
+height: auto;  /* Keep aspect ratio */
+display: block;
+margin-bottom: 20px;
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 768px) {
+.columns5 {
+flex-direction: column; /* Stack vertically on mobile */
+}
+
+.column5 {
+width: 100%; /* Make columns full width on mobile */
+max-width: 100%; /* Remove the max-width for full-screen on mobile */
+padding: 10px; /* Adjust padding for mobile */
+}
+
+.content5 {
+font-size: 1rem;  /* Adjust font size on smaller screens */
+}
+
+.title {
+font-size: 1.6rem; /* Smaller title on mobile */
+}
+
+.subtitle {
+font-size: 1.2rem; /* Smaller subtitle on mobile */
+}
+}
+
+.loader_bg {
+position: fixed;
+z-index: 9999999;
+background:black;
+width: 100%;
+height: 100%;
+}
+
+.loader {
+height: 100%;
+width: 100%;
+position: absolute;
+left: 0;
+top: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.loader img {
+width: 200px;
+}
+/* .copyright p {
+    color: #fff;
+    font-size: 17px;
+    line-height: 22px;
+    text-align: left;
+    font-weight: normal;
+
+}
+
+.copyright a {
+    color: #fff;
+}
+
+.copyright a:hover {
+    color: #e50444;
+} */
+
+ul.social_icon {
+    text-align: right;
+}
+
+ul.social_icon li {
+    display: inline-block;
+    padding-left: 3px;
+}
+
+ul.social_icon li:last-child {
+    padding-right: 0;
+}
+
+ul.social_icon li a {
+    background: black;
+    color: #FF6600;
+    width: 39px;
+    height: 39px;
+    display: inline-block;
+    text-align: center;
+    line-height: 39px;
+    border-radius: 100%;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+ul.social_icon li a:hover {
+    background: #FF6600;
+    color: black;
+    transform: rotate(360deg);
+    transition: ease-in all 0.7s;
+}
+/** contact **/
+.contact {
+    padding-top: 50px;
+    background: black;
+}
+
+.main_form .form_control {
+    padding: 0px;
+    margin-bottom: 40px;
+    max-width: 500px;
+    width: 100%;
+    height: 35px;
+    background: black;
+    color: whitesmoke;
+    font-size: 15px;
+    font-weight: normal;
+    border: inherit;
+    border-bottom: white solid 1px;
+}
+
+.main_form .form_cont {
+    margin-top: 60px;
+    margin-bottom: 87px;
+    max-width: 500px;
+    width: 100%;
+    background: black;
+    color: whitesmoke !important;
+    font-size: 15px;
+    font-weight: normal;
+    padding: 5px 0px 0px 0px;
+    height: 35px;
+    border: inherit;
+    border-bottom: white solid 1px;
+}
+
+.main_form .send_btn {
+    font-size: 18px;
+    transition: ease-in all 0.5s;
+    background-color: #FF6600;
+    color: #fff;
+    max-width: 185px;
+    width: 100%;
+    font-weight: 600;
+    height: 78px;
+    line-height: 78px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.main_form .send_btn:hover {
+    background-color: #111;
+    transition: ease-in all 0.5s;
+}
+
+#request *::placeholder {
+    color: whitesmoke;
+    opacity: 1;
+}
+
+ul.top_infomation {
+    padding-top: 100px;
+}
+
+ul.top_infomation li {
+    color: whitesmoke;
+    padding-bottom: 20px;
+}
+
+ul.top_infomation li a {
+    display: flex;
+}
+
+ul.top_infomation li a i {
+    margin-right: 8px;
+    text-align: center;
+    width: 47px;
+}
+
+ul.top_infomation li span {
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+    color: whitesmoke;
+    margin-bottom: -7px;
+}
+
+ul.top_infomation li p {
+    color: whitesmoke;
+    line-height: 18px;
+    padding-top: 5px;
+}
+
+/** end contact **/
